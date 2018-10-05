@@ -1,9 +1,55 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-{{#each data}}
-<div class="col-md-3">
-    DVPRS Scores: {{this.dvprs}}<br>
-    Date Completed: {{this.date_completed}}</div>
-{{/each}}
+        <div class="col-sm-1">PID:
+        </div>
+        <div class="col-sm-1">Date:
+        </div>
+        <div class="col-sm-1">DVPRS :
+        </div>
+        <div class="col-sm-1">Pain Int
+        </div>
+        <div class="col-sm-1">Phys Func:
+        </div>
+        <div class="col-sm-1">Fatigue:
+        </div>
+
+        <div class="col-sm-1">Sleep:
+        </div>
+    
+    <div class="col-sm-1">Depress:
+    </div>
+
+<div class="col-sm-1">Anx:
 </div>
+
+<div class="col-sm-1">Anger:
+</div>
+
+<div class="col-sm-1">Soc Sat:
+</div>
+
+<div class="col-sm-1">Alc:
+</div>
+</div>
+{{#each data}}
+<div class="row">
+    <div class="col-sm-1">
+        {{this.id}}
+    </div>
+    <div class="col-sm-1">
+        {{this.date}}
+    </div>
+
+    <div class="col-sm-1">{{this.dvprs_score}}</div>
+    <div class="col-sm-1">{{this.pain_interference}}</div>
+    <div class="col-sm-1">{{this.physical_function}}</div>
+    <div class="col-sm-1">{{this.fatigue}}</div>
+    <div class="col-sm-1">{{this.sleep_impairment}}</div>
+    <div class="col-sm-1">{{this.depression}}</div>
+    <div class="col-sm-1">{{this.anxiety}}</div>
+    <div class="col-sm-1">{{this.anger}}</div>
+    <div class="col-sm-1">{{this.social_sat}}</div>
+    <div class="col-sm-1">{{this.alcohol}}</div></div>
+    {{/each}}
+
 </div>

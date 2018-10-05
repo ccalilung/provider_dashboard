@@ -5,21 +5,37 @@ require("dotenv").config();
 
 
 
-router.get("/api/getpastor",(req,res)=> {
+router.get("/scores/byID", (req, res) => {
+    community.community.getScoresById(data => {
+        // console.log(data)
 
-    community.getAll((data) => {
-        res.json(data)
-    })
-
-})
-
-router.get("/", (req, res) => {
-    community.community.getAll(data => {
-      res.render("data", {
+        res.render("data", {
         data: data
       });
     });
   });
+
+
+router.get("/scores/bydate", (req,res) => {
+    community.community.getScoresByDate(data => {
+        res.render("data", {
+            data:data
+        })
+    })
+});
+
+
+router.get("/", (req, res) => {
+   
+        res.render("index")
+  });
+
+
+// router.get("/data", (req,res) => {
+    // res.render("data", {
+    //     data:data
+    // })
+// }) 
 
 
 

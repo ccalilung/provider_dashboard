@@ -9,34 +9,36 @@ if (config.use_env_variable) {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-let writeDb = sequelize.define("pastor", {
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    dvprs: Sequelize.INTEGER,
-    pain_interfernce: Sequelize.INTEGER
-}, {
-    freezeTableName: true,
-    timestamps: false
-})
+// let writeDb = sequelize.define("pastor", {
+//     id: {
+//         type: Sequelize.INTEGER,
+//         autoIncrement: true,
+//         primaryKey: true
+//     },
+//     dvprs: Sequelize.INTEGER,
+//     pain_interfernce: Sequelize.INTEGER
+// }, {
+//     freezeTableName: true,
+//     timestamps: false
+// })
  
 
 let community = {
-    getAll: callback => {
-        sequelize.query("select dvprs, pain_interference, date_completed from pastor", {
-            type: sequelize.QueryTypes.SELECT
+    getScoresById: (callback) => {
+        sequelize.query("select p.date, p.id, p.dvprs_score, p.pain_interference, p.physical_function, p.fatigue, p.sleep_impairment, p.depression, p.anxiety, p.anger, p.social_sat, p.alcohol, p.pcs, p.headache, p.ptsd, s.id from pastor p left join subject s on p.id = s.id order by p.id", {
+            type: sequelize.QueryTypes.SELECT,
+            required: false
         }).then(data=>{
             callback(data)
         })
-    }, 
-    getAllArticlesInCommunity: (communityId, callback) => {
-       postDb.findAll({
-           where: {community_id: communityId}
-       }).then(articles => 
-        callback(articles)
-    )}
+    }, getScoresByDate: (callback) => {
+        sequelize.query("select p.date, p.id, p.dvprs_score, p.pain_interference, p.physical_function, p.fatigue, p.sleep_impairment, p.depression, p.anxiety, p.anger, p.social_sat, p.alcohol, p.pcs, p.headache, p.ptsd, s.id from pastor p left join subject s on p.id = s.id order by p.date", {
+            type: sequelize.QueryTypes.SELECT,
+            required: false
+        }).then(data=>{
+            callback(data)
+        })
+    }
 }
 
 let postings = {
@@ -62,7 +64,7 @@ let postings = {
         
     }, 
     findUserPosts: (username, callback) => {
-        sequelize.query("select p.id, u.username, p.post_title, p.post_body, c.community_name from posts p right join community c on c.community_id = p.community_id right join user u on u.username = p.post_email where u.username = :username",{ replacements: { username: username }, 
+        sequelize.query("select p.id, u.username, p.post_title, p.post_body, c.community_name from posts p full outer join community c on c.community_id = p.community_id right join user u on u.username = p.post_email where u.username = :username",{ replacements: { username: username }, 
             type: sequelize.QueryTypes.SELECT
         }).then(posts => {
             callback(posts)
@@ -128,10 +130,10 @@ let users = {
 
 
 
-writeDb.sync();
+// writeDb.sync();
 
 
 module.exports = {
-    writeDb: writeDb,
+    // writeDb: writeDb,
     community: community
 };

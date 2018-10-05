@@ -1,8 +1,22 @@
-drop database dvcipm;
-create database dvcipm;
-
 use dvcipm;
-create table pastor(
-id int auto_increment not null primary key,
-dvprs int null,
-pain_interference float(6,3) null);
+
+create table subject(
+id int not null primary key);
+
+create table dvprs(
+entry_id int not null auto_increment primary key,
+id int not null,
+dvprs_score int null,
+date date not null,
+foreign key (id) references subject (id)
+);
+
+create table pain_interference(
+entry_id int not null auto_increment primary key,
+id int not null,
+pain_int_score int null,
+date date not null,
+foreign key (id) references subject (id)
+);
+
+
