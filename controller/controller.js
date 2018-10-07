@@ -5,6 +5,8 @@ require("dotenv").config();
 
 
 
+
+
 router.get("/scores/:type/:arr", (req, res) => {
 
     if (req.params.type === 'dvprs') {
