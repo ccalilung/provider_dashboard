@@ -24,21 +24,42 @@ if (config.use_env_variable) {
  
 
 let community = {
-    getScoresById: (callback) => {
-        sequelize.query("select p.date, p.id, p.dvprs_score, p.pain_interference, p.physical_function, p.fatigue, p.sleep_impairment, p.depression, p.anxiety, p.anger, p.social_sat, p.alcohol, p.pcs, p.headache, p.ptsd, s.id from pastor p left join subject s on p.id = s.id order by p.id", {
+    getScores: (arrangement,callback) => {
+        console.log(arrangement)
+        if (arrangement === 'byid'){
+            sequelize.query("select p.date, p.id, p.dvprs_score, p.pain_interference, p.physical_function, p.fatigue, p.sleep_impairment, p.depression, p.anxiety, p.anger, p.social_sat, p.alcohol, p.pcs, p.headache, p.ptsd, s.id from pastor p left join subject s on p.id = s.id order by p.id", {
+                type: sequelize.QueryTypes.SELECT,
+                required: false
+            }).then(data=>{
+                callback(data) 
+            }) 
+        }
+        if (arrangement === 'bydate'){
+            sequelize.query("select p.date, p.id, p.dvprs_score, p.pain_interference, p.physical_function, p.fatigue, p.sleep_impairment, p.depression, p.anxiety, p.anger, p.social_sat, p.alcohol, p.pcs, p.headache, p.ptsd, s.id from pastor p left join subject s on p.id = s.id order by p.date", {
+                type: sequelize.QueryTypes.SELECT,
+                required: false
+            }).then(data=>{
+                callback(data)  
+            })
+        
+        
+        }
+        
+
+
+        
+    },
+    
+    getIndividualScores: (id,callback) => {
+        sequelize.query("select p.date, p.id, p.dvprs_score, p.pain_interference, p.physical_function, p.fatigue, p.sleep_impairment, p.depression, p.anxiety, p.anger, p.social_sat, p.alcohol, p.pcs, p.headache, p.ptsd, s.id from pastor p left join subject s on p.id = s.id where p.id = ? order by p.date", {
+            replacements: [id],
             type: sequelize.QueryTypes.SELECT,
             required: false
-        }).then(data=>{
-            callback(data)
-        })
-    }, getScoresByDate: (callback) => {
-        sequelize.query("select p.date, p.id, p.dvprs_score, p.pain_interference, p.physical_function, p.fatigue, p.sleep_impairment, p.depression, p.anxiety, p.anger, p.social_sat, p.alcohol, p.pcs, p.headache, p.ptsd, s.id from pastor p left join subject s on p.id = s.id order by p.date", {
-            type: sequelize.QueryTypes.SELECT,
-            required: false
-        }).then(data=>{
-            callback(data)
-        })
-    }
+    }).then(data=>{
+
+        callback(data)
+    })
+}
 }
 
 let postings = {

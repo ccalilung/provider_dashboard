@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1">PID:
+        </div>
+        <div class="col-sm-1">Date:
+        </div>
+        <div class="col-sm-1">DVPRS:
+        </div>
+        <div class="col-sm-1">Pain Int:
+        </div>
+        <div class="col-sm-1">Phys Func:
+        </div>
+        <div class="col-sm-1">Fatigue:
+        </div>
+
+        <div class="col-sm-1">Sleep:
+        </div>
+    
+    <div class="col-sm-1">Depress:
+    </div>
+
+<div class="col-sm-1">Anx:
+</div>
+
+<div class="col-sm-1">Anger:
+</div>
+
+<div class="col-sm-1">Soc Sat:
+</div>
+
+<div class="col-sm-1">Alc:
+</div>
+</div>
+{{#each data}}
+<div class="row">
+    <div class="col-sm-1">
+        {{this.id}}
+    </div>
+    <div class="col-sm-1">
+        {{this.date}}
+    </div>
+
+    <div class="col-sm-1">{{this.dvprs_score}}</div>
+    <div class="col-sm-1">{{this.pain_interference}}</div>
+    <div class="col-sm-1">{{this.physical_function}}</div>
+    <div class="col-sm-1">{{this.fatigue}}</div>
+    <div class="col-sm-1">{{this.sleep_impairment}}</div>
+    <div class="col-sm-1">{{this.depression}}</div>
+    <div class="col-sm-1">{{this.anxiety}}</div>
+    <div class="col-sm-1">{{this.anger}}</div>
+    <div class="col-sm-1">{{this.social_sat}}</div>
+    <div class="col-sm-1">{{this.alcohol}}</div></div>
+    {{/each}}
+
+</div>
+<div class="block text-center">
+<div class="container-fluid center-block">
+    <div class="p-2 row bg-dark">
+        <div class="col-md-12"><h4 class="text-light">Graphs</h4>
+    <button type="button" id={{subject}} value="dvprs" class="pastorInstrument btn btn-primary">DVPRS </button>
+    <button type="button" id={{subject}} value="pain_int" class="pastorInstrument btn btn-primary">Pain Interference </button>
+    <button type="button" id={{subject}} value="phys_fun" class="pastorInstrument btn btn-primary">Physical Function </button>
+    <button type="button" id={{subject}} value="fatigue" class="pastorInstrument btn btn-primary">Fatigue </button>
+    <button type="button" id={{subject}} value="sleep" class="pastorInstrument btn btn-primary">Sleep </button>
+<button type="button" id={{subject}} value="depress" class="pastorInstrument btn btn-primary">Depression </button>
+<button type="button" id={{subject}} value="anx" class="pastorInstrument btn btn-primary">Anxiety </button>
+<button type="button" id={{subject}} value="anger" class="pastorInstrument btn btn-primary">Anger </button>
+<button type="button" id={{subject}} value="soc" class="pastorInstrument btn btn-primary">Social Satisfaction </button>
+<button type="button" id={{subject}} value="alcohol" class="pastorInstrument btn btn-primary">Alcohol </button>
+<button type="button" id={{subject}} value="pcs" class="pastorInstrument btn btn-primary">Pain Catastrophizing </button>
+<button type="button" id={{subject}} value="headache" class="pastorInstrument btn btn-primary">Headache</button>
+<button type="button" id={{subject}} value="ptsd" class="pastorInstrument btn btn-primary">PTSD</button>
+
+</div>
+</div>
+
+<div id="graphHere">
+
+</div>
+</div>
+
+
+
+

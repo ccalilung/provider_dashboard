@@ -9,6 +9,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
         <script src="/js/app.js"></script>
+         <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+        
 
 
 
@@ -19,11 +21,16 @@
 <body>
     <header>
     <nav class="bg-dark text-center">
-<div class="container-fluid">
-<a href="/scores/byID"><button type="button" id="dvprs" class="btn btn-primary">Get Scores by ID</button></a>
-<a href="/scores/bydate"><button type="button" id="pain_int" class="btn btn-primary">Get Scores by Date</button></a>
+<div class="container-fluid p-2"><h4 class="text-light">Aggregated Data:</h4>
+<button type="button" assess="dvprs" arrange="byid" class="dbQuery btn btn-primary">DVPRS &amp; PROMIS by ID</button>
+<button type="button" assess="dvprs" arrange="bydate" class="dbQuery btn btn-primary">DVPRS &amp; PROMIS Scores by Date</button>
+<button type="button" assess="pcs" arrange="byid" class="dbQuery btn btn-primary">PCS, PTSD by ID</button>
+<button type="button" assess="pcs" arrange="bydate" class="dbQuery btn btn-primary">PCS, PTSD by Date</button>
+<a href="/individual"><button type="button" class="dbQuery btn btn-primary">Search by Patient ID and Assessment</button> </a>
 </div>
-</navbar></header>
+</navbar>
+
+</header>
     {{{body}}}
 </body>
 </html>
