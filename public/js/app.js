@@ -1,6 +1,34 @@
 $(function () {
 
+    $(".dbEntry").on("click",function() {
+        event.preventDefault();
+        let obj = {
+            date:$("#dateEntry").val().trim(),
+            id: $("#entryPatientID").val().trim(),
+            dvprs: $("#dvprsScore").val().trim(),
+            pain_int: $("#painIntScore").val().trim(),
+            physFuncScore: $("#physFuncScore").val().trim(),
+            fatigueScore: $("#fatigueScore").val().trim(),
+            sleep: $("#sleepScore").val().trim(),
+            depression: $("#depressScore").val().trim(),
+            anxiety: $("#anxScore").val().trim(),
+            anger: $("#angerScore").val().trim(),
+            soc: $("#socScore").val().trim(),
+            alcohol: $("#alcoholScore").val().trim(),
+            pcs: $("#pcsScore").val().trim(),
+            headache: $("#headacheScore").val().trim(),
+            ptsd: $("#ptsdScore").val().trim()
+                    }
 
+       
+        $.ajax("/post/" + obj.id, {
+            type: "POST",
+            data: obj
+        }).then(data => {
+            location.replace("/scoresid/" + obj.id + "/dvprs" )
+        })
+
+    })
 
 
 

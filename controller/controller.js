@@ -4,7 +4,16 @@ let router = express.Router();
 require("dotenv").config();
 
 
+router.get("/post", (req,res) => {
+    res.render("post")
+})
 
+router.post("/post/:id", (req,res) => {
+    
+    community.postings.addScoresPost(req.body.date,req.params.id,req.body.dvprs,req.body.pain_int,req.body.physFuncScore,req.body.fatigueScore,req.body.sleep,req.body.depression,req.body.anxiety,req.body.anger,req.body.soc,req.body.alcohol,req.body.pcs,req.body.headache,req.body.ptsd, (data) => {
+        res.redirect("/")
+    })
+})
 
 
 router.get("/scores/:type/:arr", (req, res) => {

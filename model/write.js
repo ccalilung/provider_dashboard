@@ -9,19 +9,77 @@ if (config.use_env_variable) {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-// let writeDb = sequelize.define("pastor", {
-//     id: {
-//         type: Sequelize.INTEGER,
-//         autoIncrement: true,
-//         primaryKey: true
-//     },
-//     dvprs: Sequelize.INTEGER,
-//     pain_interfernce: Sequelize.INTEGER
-// }, {
-//     freezeTableName: true,
-//     timestamps: false
-// })
- 
+let writeDb = sequelize.define("pastor", {
+    entry_id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    date: Sequelize.DATE,
+    id: Sequelize.INTEGER,
+    dvprs_score: Sequelize.INTEGER,
+    pain_interference: Sequelize.FLOAT,
+    physical_function: Sequelize.FLOAT,
+    fatigue: Sequelize.FLOAT,
+    sleep_impairment: Sequelize.FLOAT,
+    depression: Sequelize.FLOAT,
+    anxiety: Sequelize.FLOAT,
+    anger: Sequelize.FLOAT,
+    social_sat: Sequelize.FLOAT,
+    alcohol: Sequelize.FLOAT,
+    pcs: Sequelize.FLOAT,
+    headache: Sequelize.FLOAT,
+    ptsd: Sequelize.FLOAT,
+}, {
+    freezeTableName: true,
+    timestamps: false
+})
+
+let otherDb = sequelize.define("subject", {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true
+    }},{ freezeTableName: true,
+        timestamps: false
+    })
+
+let postings = {
+    addScoresPost: (date, id, dvprs, painInt, physFun, fatigue, sleep, depress, anx, anger, soc, alcohol, pcs, headache, ptsd, callback) => {
+        otherDb.upsert({
+            id: id
+        })
+        writeDb.upsert({
+            date: date,
+        id: id,
+    dvprs_score:dvprs,
+    pain_interference: painInt,
+    physical_function: physFun,
+    fatigue: fatigue,
+    sleep_impairment: sleep,
+    depression: depress,
+    anxiety: anx,
+    anger: anger,
+    social_sat: soc,
+    alcohol: alcohol,
+    pcs: pcs,
+    headache: headache,
+    ptsd: ptsd,
+        }).then(data =>
+            callback(data)
+        )
+    },
+    deletePost: (id, callback) => {
+        postDb.destroy({
+            where: {
+                id: id
+            }
+        }).then(data => {
+            callback(data);
+        })
+        
+    }} 
+
+    // postings.addScoresPost("2018-09-25","6","7","7","7","7","7","7","7","7","7","7","7","7","7",() => {})
 
 let community = {
     getScores: (arrangement,callback) => {
@@ -61,9 +119,10 @@ let community = {
 }
 
 
-// writeDb.sync();
-
+writeDb.sync();
+otherDb.sync();
 
 module.exports = {
-        community: community
+        community: community,
+        postings: postings
 };
