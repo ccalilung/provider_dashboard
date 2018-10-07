@@ -2,14 +2,7 @@ $(function () {
 
 
 
-    // $(".sendEmail").on("click", (event) => {
-    //     let userId = $(event.target).attr("value")
-    //     console.log(userId)
-    //     $.ajax("/email/" + userId , {
-    //         type: "GET"
-    //     }).then((data) => {
-    //         location.replace("/email/" + userId)
-    //     })
+
 
     $(".dbQuery").on("click", function (event) {
 
@@ -18,7 +11,7 @@ $(function () {
             arrange: $(this).attr("arrange")
         };
         console.log(obj)
-        // location.replace("/");
+       
         location.replace("/scores/" + obj.assess + "/" + obj.arrange)
 
 
@@ -28,10 +21,11 @@ $(function () {
         event.preventDefault();
 
         let patientID = $("#patientID").val().trim()
-        
-       location.replace("/scoresid/" + patientID)
+        let val = $("#selection").val()
+      
+       location.replace("/scoresid/" + patientID + "/" + val)
     })
-
+   
     $(".pastorInstrument").on("click", function (event) {
         let id = $(this).attr("id")
         let val = $(this).attr("value")
@@ -54,6 +48,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "DVPRS"
             };
            }
 
@@ -70,6 +65,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "PROMIS Pain Interference"
             };
            }
            if(val === 'phys_fun') {
@@ -85,6 +81,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "PROMIS Physical Function"
             };
            }
            if(val === 'fatigue') {
@@ -100,6 +97,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "PROMIS Fatigue"
             };
            }
            if(val === 'sleep') {
@@ -115,6 +113,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "PROMIS Sleep"
             };
            }
            if(val === 'depress') {
@@ -130,6 +129,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "PROMIS Depression"
             };
            } 
            if(val === 'anx') {
@@ -145,6 +145,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "PROMIS Anxiety"
             };
            }
            if(val === 'anger') {
@@ -160,6 +161,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "PROMIS Anger"
             };
            }
            if(val === 'soc') {
@@ -175,6 +177,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "PROMIS Social Satisfaction Roles"
             };
            }
            if(val === 'alcohol') {
@@ -190,6 +193,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "PROMIS Alcohol"
             };
            }
            if(val === 'pcs') {
@@ -205,6 +209,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "Pain Catastrophizing Scale"
             };
            }
            if(val === 'headache') {
@@ -220,6 +225,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "Headache"
             };
            }
            if(val === 'ptsd') {
@@ -235,6 +241,7 @@ $(function () {
                 },
                 yaxis: {
                 },
+                title: "PTSD Screener"
             };
            }
 

@@ -4,31 +4,31 @@
         </div>
         <div class="col-sm-1">Date:
         </div>
-        <div class="col-sm-1">DVPRS:
+        <div class="col-sm-1">PCS:
         </div>
-        <div class="col-sm-1">Pain Int:
+        <div class="col-sm-1">Headache:
         </div>
-        <div class="col-sm-1">Phys Func:
+        <div class="col-sm-1">PCS:
         </div>
-        <div class="col-sm-1">Fatigue:
+        <div class="col-sm-1">
         </div>
 
-        <div class="col-sm-1">Sleep:
+        <div class="col-sm-1">
         </div>
     
-    <div class="col-sm-1">Depress:
+    <div class="col-sm-1">
     </div>
 
-<div class="col-sm-1">Anx:
+<div class="col-sm-1">
 </div>
 
-<div class="col-sm-1">Anger:
+<div class="col-sm-1">
 </div>
 
-<div class="col-sm-1">Soc Sat:
+<div class="col-sm-1">
 </div>
 
-<div class="col-sm-1">Alc:
+<div class="col-sm-1">
 </div>
 </div>
 {{#each data}}
@@ -40,22 +40,22 @@
         {{this.date}}
     </div>
 
-    <div class="col-sm-1">{{this.dvprs_score}}</div>
-    <div class="col-sm-1">{{this.pain_interference}}</div>
-    <div class="col-sm-1">{{this.physical_function}}</div>
-    <div class="col-sm-1">{{this.fatigue}}</div>
-    <div class="col-sm-1">{{this.sleep_impairment}}</div>
-    <div class="col-sm-1">{{this.depression}}</div>
-    <div class="col-sm-1">{{this.anxiety}}</div>
-    <div class="col-sm-1">{{this.anger}}</div>
-    <div class="col-sm-1">{{this.social_sat}}</div>
-    <div class="col-sm-1">{{this.alcohol}}</div></div>
+    <div class="col-sm-1">{{this.pcs}}</div>
+    <div class="col-sm-1">{{this.headache}}</div>
+    <div class="col-sm-1">{{this.ptsd}}</div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-1"></div></div>
     {{/each}}
 
 </div>
 <div class="block text-center">
 <div class="container-fluid center-block">
-    <div class="p-2 row bg-dark">
+     <div class="p-2 row bg-dark">
         <div class="col-md-12"><h4 class="text-light">Graphs</h4>
     <button type="button" id={{subject}} value="dvprs" class="pastorInstrument btn btn-primary" data-toggle="modal" data-target="#myModal">DVPRS </button>
     <button type="button" id={{subject}} value="pain_int" class="pastorInstrument btn btn-primary" data-toggle="modal" data-target="#myModal">Pain Interference </button>
@@ -73,7 +73,6 @@
 
 </div>
 </div>
-
 
 
   <!-- Modal -->
@@ -99,7 +98,3 @@
     </div>
   </div>
 </div>
-
-
-
-

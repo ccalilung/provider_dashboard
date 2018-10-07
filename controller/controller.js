@@ -29,20 +29,26 @@ router.get("/individual", (req, res) => {
     res.render("individual")
 })
 
-router.get("/scoresid/:id", (req, res) => {
+router.get("/scoresid/:id/:val", (req, res) => {
     community.community.getIndividualScores(req.params.id, data => {
-        // console.log(data)
-        let arr = [];
-        data.map(x => {
-            arr.push(x.dvprs_score)
-        })
-
+        
+        if(req.params.val === "dvprs"){
         res.render("data1", {
             data: data,
-            arr: arr,
+            
             subject: data[0].id
 
         });
+    }
+
+        if(req.params.val === "pcs"){
+            res.render("data2", {
+                data: data,
+                
+                subject: data[0].id
+    
+            });
+    }
     });
 });
 

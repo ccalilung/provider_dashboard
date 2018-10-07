@@ -22,4 +22,10 @@ CREATE TABLE `pastor` (
   CONSTRAINT `pastor_ibfk_1` FOREIGN KEY (`id`) REFERENCES `subject` (`id`)
 ) 
 
+CREATE TABLE `subject` (
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+)
+
+
 
