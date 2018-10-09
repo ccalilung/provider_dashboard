@@ -1,55 +1,60 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-1">PID:
+        <div class="col-sm-1 text-center"><br/>PID:
         </div>
-        <div class="col-sm-1">Date:
+       <div class="col-sm-1 text-center"><div class="text-center" style="font-size:10px">(Sub-Category):</div>Date:
         </div>
-        <div class="col-sm-1">DVPRS:
+        <div class="col-sm-1 text-center"><div class="text-center" style="font-size:10px">Pain/Catastrophizing</div>DVPRS:
+        
         </div>
-        <div class="col-sm-1">Pain Int:
+        <div class="col-sm-1 text-center"><div class="text-center" style="font-size:10px">PROMIS Pain &amp; Physical Function</div>Pain Int:
+         
         </div>
-        <div class="col-sm-1">Phys Func:
+        <div class="col-sm-1 text-center"> <div class="text-center" style="font-size:10px">PROMIS Pain &amp; Physical Function</div>Phys Func:
+        
         </div>
-        <div class="col-sm-1">Fatigue:
+        <div class="col-sm-1 text-center"> <div class="text-center" style="font-size:10px">PROMIS Pain &amp; Physical Function</div>Fatigue:
+        
         </div>
 
-        <div class="col-sm-1">Sleep:
+        <div class="col-sm-1 text-center"> <div class="text-center" style="font-size:10px">PROMIS Pain &amp; Physical Function</div>Sleep:
+        
         </div>
     
-    <div class="col-sm-1">Depress:
+    <div class="col-sm-1 text-center"> <div class="text-center" style="font-size:10px">PROMIS Psychosocial</div>Depress:
     </div>
 
-<div class="col-sm-1">Anx:
+<div class="col-sm-1 text-center"> <div class="text-center" style="font-size:10px">PROMIS Psychosocial</div>Anxiety:
 </div>
 
-<div class="col-sm-1">Anger:
+<div class="col-sm-1 text-center"> <div class="text-center" style="font-size:10px">PROMIS Psychosocial</div>Anger:
 </div>
 
-<div class="col-sm-1">Soc Sat:
+<div class="col-sm-1 text-center"> <div class="text-center" style="font-size:10px">PROMIS Psychosocial</div>Soc Sat:
 </div>
 
-<div class="col-sm-1">Alc:
+<div class="col-sm-1 text-center"> <div class="text-center" style="font-size:10px">Other Scales</div>Alcohol:
 </div>
 </div>
 {{#each data}}
 <div class="row">
-    <div class="col-sm-1">
+    <div class="col-sm-1 text-center">
         {{this.id}}
     </div>
-    <div class="col-sm-1">
+    <div class="col-sm-1 text-center">
         {{this.date}}
     </div>
 
-    <div class="col-sm-1">{{this.dvprs_score}}</div>
-    <div class="col-sm-1">{{this.pain_interference}}</div>
-    <div class="col-sm-1">{{this.physical_function}}</div>
-    <div class="col-sm-1">{{this.fatigue}}</div>
-    <div class="col-sm-1">{{this.sleep_impairment}}</div>
-    <div class="col-sm-1">{{this.depression}}</div>
-    <div class="col-sm-1">{{this.anxiety}}</div>
-    <div class="col-sm-1">{{this.anger}}</div>
-    <div class="col-sm-1">{{this.social_sat}}</div>
-    <div class="col-sm-1">{{this.alcohol}}</div></div>
+    <div class="col-sm-1 text-center">{{this.dvprs_score}}</div>
+    <div class="col-sm-1 text-center">{{this.pain_interference}}</div>
+    <div class="col-sm-1 text-center">{{this.physical_function}}</div>
+    <div class="col-sm-1 text-center">{{this.fatigue}}</div>
+    <div class="col-sm-1 text-center">{{this.sleep_impairment}}</div>
+    <div class="col-sm-1 text-center">{{this.depression}}</div>
+    <div class="col-sm-1 text-center">{{this.anxiety}}</div>
+    <div class="col-sm-1 text-center">{{this.anger}}</div>
+    <div class="col-sm-1 text-center">{{this.social_sat}}</div>
+    <div class="col-sm-1 text-center">{{this.alcohol}}</div></div>
     {{/each}}
 
 </div>

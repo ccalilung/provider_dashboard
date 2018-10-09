@@ -1,16 +1,18 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-1">PID:
+        <div class="col-sm-1 text-center"><div class="text-center" style="font-size:10px;color:#ffffff"> blank </div>PID:
         </div>
-        <div class="col-sm-1">Date:
+         <div class="col-sm-1 text-center"><div class="text-center" style="font-size:10px">(Sub-Category):</div>Date:
         </div>
-        <div class="col-sm-1">PCS:
+        <div class="col-sm-1 text-center"><div class="text-center" style="font-size:10px">Pain/Catastrophizing</div>PCS:
+           
         </div>
-        <div class="col-sm-1">Headache:
+        <div class="col-sm-1 text-center"><div class="text-center" style="font-size:10px">Other Scales</div>Headache:
         </div>
-        <div class="col-sm-1">PTSD:
+        <div class="col-sm-1 text-center"><div class="text-center" style="font-size:10px">Other Scales</div>PTSD:
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-1 text-center"><div class="text-center" style=" font-size:10px">Other Scales</div>RX Misuse:
+        </div>
         </div>
 
         <div class="col-sm-1">
@@ -33,16 +35,16 @@
 </div>
 {{#each data}}
 <div class="row">
-    <div class="col-sm-1">
+    <div class="col-sm-1 text-center">
         {{this.id}}
     </div>
-    <div class="col-sm-1">
+    <div class="col-sm-1 text-center">
         {{this.date}}
     </div>
 
-    <div class="col-sm-1">{{this.pcs}}</div>
-    <div class="col-sm-1">{{this.headache}}</div>
-    <div class="col-sm-1">{{this.ptsd}}</div>
+    <div class="col-sm-1 text-center">{{this.pcs}}</div>
+    <div class="col-sm-1 text-center">{{this.headache}}</div>
+    <div class="col-sm-1 text-center">{{this.ptsd}}</div>
     <div class="col-sm-1"></div>
     <div class="col-sm-1"></div>
     <div class="col-sm-1"></div>
