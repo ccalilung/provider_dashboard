@@ -93,7 +93,7 @@ let community = {
             }) 
         }
         if (arrangement === 'bydate'){
-            sequelize.query("select p.date, p.id, p.dvprs_score, p.pain_interference, p.physical_function, p.fatigue, p.sleep_impairment, p.depression, p.anxiety, p.anger, p.social_sat, p.alcohol, p.pcs, p.headache, p.ptsd, s.id from pastor p left join subject s on p.id = s.id order by p.date", {
+            sequelize.query("select p.date, p.id, p.dvprs_score, p.pain_interference, p.physical_function, p.fatigue, p.sleep_impairment, p.depression, p.anxiety, p.anger, p.social_sat, p.alcohol, p.pcs, p.headache, p.ptsd, s.id from pastor p left join subject s on p.id = s.id order by p.date desc", {
                 type: sequelize.QueryTypes.SELECT,
                 required: false
             }).then(data=>{
@@ -107,7 +107,7 @@ let community = {
     },
     
     getIndividualScores: (id,callback) => {
-        sequelize.query("select p.date, p.id, p.dvprs_score, p.pain_interference, p.physical_function, p.fatigue, p.sleep_impairment, p.depression, p.anxiety, p.anger, p.social_sat, p.alcohol, p.pcs, p.headache, p.ptsd, s.id from pastor p left join subject s on p.id = s.id where p.id = ? order by p.date", {
+        sequelize.query("select p.date, p.id, p.dvprs_score, p.pain_interference, p.physical_function, p.fatigue, p.sleep_impairment, p.depression, p.anxiety, p.anger, p.social_sat, p.alcohol, p.pcs, p.headache, p.ptsd, s.id from pastor p left join subject s on p.id = s.id where p.id = ? order by p.date desc", {
             replacements: [id],
             type: sequelize.QueryTypes.SELECT,
             required: false
